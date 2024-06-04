@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OgloszeniaOPraceXamarin.Views.AnnouncementView">
+    <ContentPage.Content>
+        <StackLayout>
+            <FlexLayout x:Name="Toolbar"
+                        IsVisible="false"
+                        Margin="10">
+                <Button x:Name="Delete"
+                        Text="Delete"
+                        BackgroundColor="Red"
+                        Clicked="Delete_Clicked"
+                        Margin="10"
+                        TextColor="White" />
+                <Button x:Name="Edit"
+                        Text="Edit"
+                        BackgroundColor="Blue"
+                        Clicked="Edit_Clicked"
+                        Margin="10"
+                        TextColor="White" />
+            </FlexLayout>
+            <Label x:Name="Quantity"
+                   Text="Liczba aplikacji: 0"
+                   VerticalTextAlignment="Center"
+                   TextColor="Black" 
+                   Margin="5"/>
+            <FlexLayout Margin="10"
+                        JustifyContent="SpaceEvenly"
+                        x:Name="ApplicationButton"
+                        IsVisible="false">
+                <Button WidthRequest="100"
+                        Text="Aplikuj"
+                        x:Name="Applicate"
+                        Clicked="Applicate_Clicked" />
+                <Label x:Name="ApplicationQuantity"
+                       Text="Liczba aplikacji: 0"
+                       VerticalTextAlignment="Center"
+                       TextColor="Black" />
+            </FlexLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+
+                <!-- Headers -->
+
+                <Label Text="Tytul"
+                       Grid.Column="0"
+                       Grid.Row="0"
+                       FontAttributes="Bold"
+                       TextColor="Black"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center" />
+                <Label Text="Opis"
+                       Grid.Column="0"
+                       Grid.Row="1"
+                       FontAttributes="Bold"
+                       TextColor="Black"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center" />
+                <Label Text="Kategoria"
+                       Grid.Column="0"
+                       Grid.Row="2"
+                       FontAttributes="Bold"
+                       TextColor="Black"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center" />
+                <Label Text="Rodzaj Pracy"
+                       Grid.Column="0"
+                       Grid.Row="3"
+                       FontAttributes="Bold"
+                       TextColor="Black"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center" />
+                <Label Text="Pozycja"
+                       Grid.Column="0"
+                       Grid.Row="4"
+                       FontAttributes="Bold"
+                       TextColor="Black"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center" />
+                <Label Text="Wynagrodzenie"
+                       Grid.Column="0"
+                       Grid.Row="5"
+                       FontAttributes="Bold"
+                       TextColor="Black"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center" />
+
+                <!-- Values -->
+
+                <Label Text="{Binding Title}"
+                       Grid.Column="1"
+                       Grid.Row="0"
+                       VerticalTextAlignment="Center"
+                       HorizontalOptions="Center" />
+                <Label Text="{Binding Description}"
+                       Grid.Column="1"
+                       Grid.Row="1"
+                       VerticalTextAlignment="Center"
+                       HorizontalOptions="Center" />
+                <Label Text="{Binding Category.Name}"
+                       Grid.Column="1"
+                       Grid.Row="2"
+                       VerticalTextAlignment="Center"
+                       HorizontalOptions="Center" />
+                <Label Text="{Binding TypeOfWork.Name}"
+                       Grid.Column="1"
+                       Grid.Row="3"
+                       VerticalTextAlignment="Center"
+                       HorizontalOptions="Center" />
+                <Label Text="{Binding Position}"
+                       Grid.Column="1"
+                       Grid.Row="4"
+                       VerticalTextAlignment="Center"
+                       HorizontalOptions="Center" />
+                <Label Text="{Binding MinWage}"
+                       Grid.Column="1"
+                       Grid.Row="5"
+                       VerticalTextAlignment="Center"
+                       HorizontalOptions="Center" />
+            </Grid>
+            <Line BackgroundColor="Gray"
+                  HeightRequest="1"
+                  Margin="15,20" />
+            <FlexLayout JustifyContent="SpaceAround">
+                <Image Source="{Binding Company.ImageLink}"
+                       WidthRequest="50"
+                       HeightRequest="50" />
+                <StackLayout>
+                    <Label Text="{Binding Company.Name}"
+                           FontSize="20"
+                           TextColor="Black"
+                           HorizontalTextAlignment="Center" />
+                    <Label Text="{Binding Company.Description}"
+                           HorizontalTextAlignment="Center" />
+                </StackLayout>
+            </FlexLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

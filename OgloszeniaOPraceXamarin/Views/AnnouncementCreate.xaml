@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OgloszeniaOPraceXamarin.Views.AnnouncementCreate">
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+
+                <!-- Headers -->
+
+                <Label Text="Tytul"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"
+                       TextColor="Black"
+                       Grid.Column="0"
+                       Grid.Row="0" />
+                <Label Text="Pozycja"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"
+                       TextColor="Black"
+                       Grid.Column="0"
+                       Grid.Row="1" />
+                <Label Text="Opis"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"
+                       TextColor="Black"
+                       Grid.Column="0"
+                       Grid.Row="2" />
+                <Label Text="Kategoria"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"
+                       TextColor="Black"
+                       Grid.Column="0"
+                       Grid.Row="3" />
+                <Label Text="Rodzaj pracy"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"
+                       TextColor="Black"
+                       Grid.Column="0"
+                       Grid.Row="4" />
+                <Label Text="Wynagrodzenie"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"
+                       TextColor="Black"
+                       Grid.Column="0"
+                       Grid.Row="5"
+                       Grid.ColumnSpan="2" />
+
+                <!-- Values -->
+
+                <Entry Keyboard="Text"
+                       Grid.Column="1"
+                       Grid.Row="0"
+                       x:Name="ATitle"
+                       VerticalOptions="Center" />
+                <Entry Keyboard="Text"
+                       Grid.Column="1"
+                       Grid.Row="1"
+                       x:Name="Position"
+                       VerticalOptions="Center" />
+                <Entry Keyboard="Text"
+                       Grid.Column="1"
+                       Grid.Row="2"
+                       x:Name="Description"
+                       VerticalOptions="Center" />
+                <Picker x:Name="Category"
+                        Grid.Column="1"
+                        Grid.Row="3"
+                        VerticalOptions="Center"
+                        ItemDisplayBinding="{Binding Name}"
+                        SelectedItem="{Binding ID}"
+                        HorizontalTextAlignment="Center" />
+                <Picker x:Name="TypeOfWork"
+                        Grid.Column="1"
+                        Grid.Row="4"
+                        VerticalOptions="Center"
+                        ItemDisplayBinding="{Binding Name}"
+                        SelectedItem="{Binding ID}"
+                        HorizontalTextAlignment="Center" />
+            </Grid>
+            <FlexLayout JustifyContent="SpaceEvenly"
+                        Grid.Column="1"
+                        Grid.Row="4">
+                <Entry x:Name="MinWage"
+                       VerticalOptions="Center"
+                       WidthRequest="100" />
+                <Label Text="-"
+                       TextColor="Black"
+                       FontSize="20" />
+                <Entry x:Name="MaxWage"
+                       VerticalOptions="Center"
+                       WidthRequest="100" />
+            </FlexLayout>
+            <Button x:Name="ActionButton"
+                    Text="Dodaj"
+                    BackgroundColor="Blue"
+                    FontSize="20"
+                    TextColor="White"
+                    Clicked="ActionButton_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

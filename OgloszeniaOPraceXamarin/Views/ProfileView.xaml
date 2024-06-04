@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OgloszeniaOPraceXamarin.Views.ProfileView">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="Wyloguj"
+                    Margin="10"
+                    x:Name="LogOut"
+                    Clicked="LogOut_Clicked" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+
+                <!-- Headers -->
+
+                <Label Text="Login"
+                       Grid.Column="0"
+                       Grid.Row="0"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center" />
+                <Label Text="Imie"
+                       Grid.Column="0"
+                       Grid.Row="1"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center" />
+                <Label Text="Nazwisko"
+                       Grid.Column="0"
+                       Grid.Row="2"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center" />
+                <Label Text="Email"
+                       Grid.Column="0"
+                       Grid.Row="3"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center" />
+
+                <!-- Values -->
+
+                <Label Text="Login"
+                       Grid.Column="1"
+                       Grid.Row="0"
+                       TextColor="Black"
+                       x:Name="Login"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center" />
+                <Label Text="Imie"
+                       Grid.Column="1"
+                       Grid.Row="1"
+                       TextColor="Black"
+                       x:Name="Name"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center" />
+                <Label Text="Nazwisko"
+                       Grid.Column="1"
+                       Grid.Row="2"
+                       TextColor="Black"
+                       x:Name="Surname"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center" />
+                <Label Text="Email"
+                       Grid.Column="1"
+                       Grid.Row="3"
+                       TextColor="Black"
+                       x:Name="Email"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center" />
+            </Grid>
+            <Label Text="Twoje ogloszenia"
+                   Margin="0,20"
+                   TextColor="Black"
+                   HorizontalTextAlignment="Center"
+                   FontSize="20" />
+            <FlexLayout Direction="Column"
+                        x:Name="CompanyForm"
+                        Margin="10">
+                <Line HeightRequest="1"
+                      BackgroundColor="Gray" />
+                <Label Text="Dodaj firme"
+                       TextColor="Black"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       FontSize="20" />
+                <Entry Placeholder="Nazwa firmy"
+                       Keyboard="Text"
+                       x:Name="CompanyName" />
+                <Entry Placeholder="Opis"
+                       Keyboard="Text"
+                       x:Name="CompanyDescription" />
+                <Entry Placeholder="Link do zdjecia"
+                       Keyboard="Text"
+                       x:Name="CompanyImage" />
+                <Entry Placeholder="Nip"
+                       Keyboard="Numeric"
+                       x:Name="NIP" />
+                <Button Text="Dodaj firme"
+                        x:Name="CompanyAddButton"
+                        Clicked="CompanyAddButton_Clicked" />
+                <Line HeightRequest="1"
+                      BackgroundColor="Gray" />
+            </FlexLayout>
+            <ListView x:Name="UserAnnouncementList">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding Company.ImageLink}"
+                                       Grid.Column="0" />
+                                <Label VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       Text="{Binding Title}"
+                                       Grid.Column="1" />
+                                <Button VerticalOptions="Center"
+                                        Text="Edit"
+                                        BackgroundColor="Blue"
+                                        TextColor="White"
+                                        Grid.Column="2"
+                                        x:Name="Edit"
+                                        Clicked="Edit_Clicked"
+                                        CommandParameter="{Binding .}" />
+                                <Button VerticalOptions="Center"
+                                        Text="Delete"
+                                        BackgroundColor="Red"
+                                        TextColor="White"
+                                        Grid.Column="3"
+                                        x:Name="Delete"
+                                        Clicked="Delete_Clicked"
+                                        CommandParameter="{Binding .}" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout x:Name="Applications">
+                <Label Text="Aplikacje"
+                       HorizontalTextAlignment="Center"
+                       TextColor="Black"
+                       FontSize="20"
+                       Margin="10" />
+                <ListView x:Name="ApplicationsList">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding Announcement.Title}"
+                                           VerticalTextAlignment="Center"
+                                           HorizontalTextAlignment="Center"
+                                           Grid.Column="0" />
+                                    <Button Text="Akceptuj"
+                                            x:Name="Accept"
+                                            BackgroundColor="Green"
+                                            Grid.Column="1"
+                                            Clicked="Accept_Clicked"
+                                            CommandParameter="{Binding .}" 
+                                            TextColor="White"/>
+                                    <Button Text="Odrzuc"
+                                            x:Name="Denied"
+                                            BackgroundColor="Red"
+                                            Grid.Column="2"
+                                            Clicked="Denied_Clicked"
+                                            CommandParameter="{Binding .}"
+                                            TextColor="White" />
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

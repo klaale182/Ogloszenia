@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="OgloszeniaOPraceXamarin.Views.LoginPage"
+            Title="Logowanie/Rejestracja">
+    <ContentPage Title="Logowanie">
+        <FlexLayout Direction="Column"
+                    Margin="10">
+            <Label Text="Login" />
+            <Entry Keyboard="Text"
+                   x:Name="LoginEntry" />
+            <Label Text="Haslo" />
+            <Entry IsPassword="True"
+                   Keyboard="Text"
+                   x:Name="PasswordEntry" />
+            <Button Text="Zaloguj"
+                    BackgroundColor="LightBlue"
+                    BorderColor="Transparent"
+                    BorderWidth="0"
+                    x:Name="LoginAction"
+                    Clicked="LoginAction_Clicked" />
+        </FlexLayout>
+    </ContentPage>
+    <ContentPage Title="Rejestracja">
+        <FlexLayout Direction="Column"
+                    Margin="10">
+            <Label Text="Login" />
+            <Entry x:Name="RLogin" />
+            <Label Text="Haslo" />
+            <Entry x:Name="RPassword"
+                   IsPassword="True" />
+            <Label Text="Powtorz Haslo" />
+            <Entry x:Name="RPassword2"
+                   IsPassword="True" />
+            <Label Text="Imie" />
+            <Entry x:Name="RName" />
+            <Label Text="Nazwisko" />
+            <Entry x:Name="RSurname" />
+            <Label Text="Email" />
+            <Entry x:Name="REmail"
+                   Keyboard="Email" />
+            <Button Text="Zarejestruj"
+                    BackgroundColor="LightBlue"
+                    BorderColor="Transparent"
+                    BorderWidth="0"
+                    x:Name="RegisterAction"
+                    Clicked="RegisterAction_Clicked" />
+        </FlexLayout>
+    </ContentPage>
+</TabbedPage>
